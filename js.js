@@ -13,13 +13,20 @@ searchField.addEventListener('keyup', function (e) {
 const getSearch = () => {
     const searchFieldText = searchField.value;
     fetchingSearch(searchFieldText);
-    // searchField.value ='';
+    searchField.value ='';
 }
 const fetchingSearch = searchText => {
     url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
         .then(res => res.json())
-        .then(data => displayFetchedData(data))
+        .then(data => {
+            if(data.status){
+                displayFetchedData(data)
+            }
+            else{
+                alert('No phone found.')
+            }
+        })
 }
 const cardContainer = document.getElementById('card-container');
 const displayFetchedData = data => {
@@ -45,7 +52,6 @@ function slugF(x) {
         .then(res => res.json())
         .then(data => {
             const slugInfo = data.data.mainFeatures;
-            console.log(slugInfo)
             document.getElementById('phoneModalLabel').innerText = x;
             document.getElementById('phone-storage').innerText = slugInfo.storage;
             document.getElementById('phone-display').innerText = slugInfo.displaySize;
@@ -59,8 +65,4 @@ function slugF(x) {
             })
         })
 }
-// phone-display"></span>></p>
-{/* <p>Storage <span id="phone-storage"></span>></p> */ }
-{/* <p>Chipset <span id="phone-chipset"></span>></p> */ }
-{/* <p>Memory <span id="phone-memory" */ }
 document.getElementById
