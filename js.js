@@ -22,21 +22,22 @@ const fetchingSearch = searchText => {
         .then(data => displayFetchedData(data))
 }
 const displayFetchedData = data => {
-    console.log(data.data[0])
-    
     data.data.map(x => showInCard(x))
 }
 const showInCard = phone => {
+    console.log(phone)
     const cardContainer = document.getElementById('card-container');
     const newDiv = document.createElement('div');
-    newDiv.classList.add('card col-4');
+    newDiv.classList.add('card', 'col-4', 'g-4');
     newDiv.style.width='18rem';
     newDiv.innerHTML = `
-        <img src="" class="card-img-top" alt="...">
+        <img src="${phone.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>            
+            <h5 class="card-title">Brand: ${phone.brand}</h5>
+            <h6 class="card-title">Model: ${phone.phone_name}</h6>
+            <p class="card-text">${phone.slug}</p>
+            <button class="btn btn-primary">Details</button>            
         </div>
     `
+    cardContainer.appendChild(newDiv)
 }
