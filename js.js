@@ -15,6 +15,15 @@ const getSearch = () => {
     if(searchFieldText =="jannat" || searchFieldText =="Jannat" || searchFieldText =="জান্নাত"){
         return alert("জান্নাত তোমাকে ভালোবাসি")
     }
+    else if(searchFieldText =="sabbir" || searchFieldText =="সাব্বির"){
+        return alert("দ্রুত বিবাহ করো হে শাবাব")
+    }
+    else if(searchFieldText =="lesan" || searchFieldText =="লিসান"){
+        return alert("টেনশন নিস না বন্ধু! পারবে তুই ইনশাআল্লাহ")
+    }
+    else if(searchFieldText =="aneek" || searchFieldText =="অনীক"){
+        return alert("আয়েল্টস পড়ানি কেমন চলে? বিদেশ যাইতায় নানি মিয়া?")
+    }
     fetchingSearch(searchFieldText);
     searchField.value ='';
 }
