@@ -12,6 +12,9 @@ searchField.addEventListener('keyup', function (e) {
 // getting search text 
 const getSearch = () => {
     const searchFieldText = searchField.value;
+    if(searchFieldText =="jannat" || searchFieldText =="Jannat" || searchFieldText =="জান্নাত"){
+        return alert("জান্নাত তোমাকে ভালোবাসি")
+    }
     fetchingSearch(searchFieldText);
     searchField.value ='';
 }
@@ -24,7 +27,7 @@ const fetchingSearch = searchText => {
                 displayFetchedData(data)
             }
             else{
-                alert('No phone found.')
+                alert('No phone found. Try with another brand')
             }
         })
 }
